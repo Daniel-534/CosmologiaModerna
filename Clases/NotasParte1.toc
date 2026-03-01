@@ -1,0 +1,13 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Principio de Covarianza}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Ejemplo}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Diferencial de coordenadas}{2}{section.2}%
+\contentsline {section}{\numberline {3}Regla de la cadena en la ley de transformación de un vector contravariante}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ejemplo}{3}{subsection.3.1}%
+\contentsline {section}{\numberline {4}Regla de la cadena en la ley de transformación de un vector covariante}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ejemplo}{3}{subsection.4.1}%
+\contentsline {section}{\numberline {5}El tensor métrico}{3}{section.5}%
+\contentsline {section}{\numberline {6}Transformación de la métrica. Ley de transformación de un tensor covariante de rango 2}{3}{section.6}%
+\contentsline {section}{\numberline {7}Bajar y subir índices}{4}{section.7}%
+\contentsline {section}{\numberline {8}Definición general de distancia infinitesimal}{4}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Ejemplo}{4}{subsection.8.1}%

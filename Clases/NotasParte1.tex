@@ -1,0 +1,166 @@
+\documentclass[a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{parskip}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
+\usepackage{booktabs}
+
+
+
+% cabecera
+\pagestyle{fancy}
+\fancyhead[l]{Cosmología Moderna}
+\fancyhead[c]{Notas de Clase Parte 1}
+\fancyhead[r]{\today}
+\fancyfoot[c]{\thepage}
+\renewcommand{\headrulewidth}{0.2pt} % linea horizontal
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  {\Large Universidad de Antioquia\par}
+  \vspace{2cm}
+  {\huge\bfseries Cosmolog\'ia Moderna\par}
+  \vspace{0.4cm}
+  {\Large Notas de Clase Parte 1\par}
+  \vspace{2.5cm}
+  {\large Autor:\par}
+  \vspace{0.2cm}
+  {\large Daniel Soto Villada\par}
+  {\large Estudiante de Astronom\'ia\par}
+  \vfill
+  {\large \today\par}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Principio de Covarianza}
+Establece que las leyes de la física deben expresarse en forma tensorial para asegurar que sean válidas para todos los observadores, independiente de su estado de movimiento o del sistema de coordenadas utilizado.
+
+Este principio es fundamental en relatividad general por:
+
+\begin{itemize}
+	\item Independencia de coordenadas
+	\item Universalidad
+	\item Obtención de invariantes [cantidad escalar invariante para cualquier observador (realidad objetiva)]
+\end{itemize}
+
+\textbf{Ecuaciones de Newton $\longrightarrow$ Ley tensorial}
+
+$$\vec{F} = m\vec{a}\quad\quad F^{i}=ma^{i}$$
+
+$\vec{F}$ y $\vec{a}$ son tensores contravariantes de rango $1$. En el marco newtoniano, la ley $F^{i}=ma^{i}$ debe ser invariante bajo una transformación de galileo entre marcos inerciales
+
+\subsection{Ejemplo}
+Consideremos dos marcos inerciales $S$ y $S'$, donde $S`$ se mueve con una velocidad constante $v$ respecto a $S$ a lo largo del eje $x$.
+
+Transformación de coordenadas
+	
+$$x'=x-vt,\quad y' = y, \quad z' = z, \quad t' = t$$
+	
+Cálculo de la velocidad en $S$
+
+$$u' = \frac{dx'}{dt'} = \frac{d(x-vt)}{dt} = \frac{dx}{dt}-v = u-v$$
+
+Cálculo de la aceleración en $S'$
+
+$$a' = \frac{du'}{dt'} = \frac{d(u-v)}{dt} = \frac{du}{dt}-0 = a$$
+
+
+Conclusión
+
+En $S$: $F=ma$, en $S'$: $F'=ma'$. Por lo tanto, la ecuación $F^{i}=ma^{i}$ mantiene la misma forma matemática. Estamos visualizando un caracter tensorial bajo transformaciones galileanas.
+
+\section{Diferencial de coordenadas}
+
+$$dx^{\mu}$$
+
+Usualmente en cuatro dimensiones, $\mu = \{0,1,2,3\}\equiv \{t, x, y, z\}$ entonces, por ejemplo $dx^0=dt,\quad dx^1=dx, \quad dx^2=dy,...$
+
+\section{Regla de la cadena en la ley de transformación de un vector contravariante}
+
+$$dx^{\mu}(x'^{\nu}) = \sum_{\rho} \frac{\partial x^{\mu}}{\partial x'^{\rho}}dx'^{\rho} = \frac{\partial x^{\mu}}{\partial x'^{\rho}}dx'^{\rho}$$
+
+
+Nótese el uso de la notación de Einstein, se aplica la suma sobre índices repetidos. A $\rho$ se le llama índice mudo o "dummy index".
+
+\textit{Nota:} Respecto al diferencial de la anterior definición, $dx^{\mu}(x'^{\nu})$ estamos hablando del diferencial de $x^{\mu}$ que depende de las nuevas coordenadas $x`^{\nu}$
+
+\subsection{Ejemplo}
+
+Vamos a aplicar la anterior definición al caso de transformación entre coordenadas cartesianas $2D$ y coordenadas polares.
+
+$$x^{\mu} = \begin{bmatrix} x \\ y \end{bmatrix}\quad \quad x'^{\nu} = \begin{bmatrix} r \\ \theta \end{bmatrix}$$
+
+$$x^{\mu}(x'^{\nu}) = \begin{bmatrix} x(r, \theta) \\ y(r,\theta) \end{bmatrix} = \begin{bmatrix} r\cos\theta \\ r\sin\theta \end{bmatrix}$$
+
+luego: $dx^{\mu}(x'^{\nu}) = \frac{\partial x^{\mu}}{\partial x'^{\rho}}dx'^{\rho}$ y aplicamos la definición
+
+$$dx^{\mu}(x'^{\nu}) = \begin{bmatrix} \frac{\partial x}{\partial r}dr + \frac{\partial x}{\partial \theta}d\theta \\ \frac{\partial y}{\partial r}dr + \frac{\partial y}{\partial \theta}d\theta \end{bmatrix} = \begin{bmatrix} dx \\ dy \end{bmatrix}\longrightarrow \text{en el nuevo sistema coordenado}$$
+
+Hagamos los cálculos:
+
+$$\frac{\partial x}{\partial \theta} = -r\sin\theta,\quad \frac{\partial x}{\partial r} = \cos\theta,\quad \frac{\partial y}{\partial \theta} = r\cos\theta,\quad \frac{\partial y}{\partial r} = \sin\theta$$
+
+entonces:
+
+$$\begin{bmatrix} dx \\ dy \end{bmatrix} = dx^{\mu}(x'^{\nu}) = \begin{bmatrix} \cos \theta dr - r\sin\theta d \theta \\ \sin \theta dr + r\cos\theta d \theta \end{bmatrix}$$
+
+\section{Regla de la cadena en la ley de transformación de un vector covariante}
+
+$$\frac{\partial \varphi}{\partial x'^{\nu}}\left[x^{\mu}(x'^{\nu})\right] = \sum_\mu \frac{\partial \varphi}{\partial x^{\mu}} \frac{\partial x^{\mu}}{\partial x'^{\nu}} = \partial_\mu \varphi \frac{\partial x^{\mu}}{\partial x'^{\nu}}$$
+
+\textit{Nota:} el jacobiano es el "traductor" matemático entre dos sistemas de coordenadas diferentes. El jacobiano es la matriz de transformación compuesta por todas las derivadas parciales de una respecto a la otra.
+
+\subsection{Ejemplo}
+
+Entre cartesianas y polares, el jacobiano es 
+
+$$J = \begin{bmatrix} \partial_r x & \partial_\theta x \\ \partial_r y & \partial_\theta y \end{bmatrix}$$
+
+\section{El tensor métrico}
+
+El objeto $g_{\mu \nu}$ se llama tensor métrico. Es la herramienta fundamental que define la geometría del espacio. Sus funciones (utilidades) son: medir distancias, definir ángulos, subir y bajar índices (actúa como "operador" que cambia la posición de los índices de otros tensores)
+
+\section{Transformación de la métrica. Ley de transformación de un tensor covariante de rango 2}
+
+$$g_{\mu \nu} = \sum_{\rho \delta} \frac{\partial x^{\rho}}{\partial x^{\mu}} \frac{\partial x^{\delta}}{\partial x^{\nu}}g_{\rho\delta} = \frac{\partial x^{\rho}}{\partial x^{\mu}} \frac{\partial x^{\delta}}{\partial x^{\nu}}g_{\rho\delta}$$
+
+Indica que si conocemos la métrica en un sistema de coordenadas $(x^\rho,x^\delta)$, podemos calcular la nueva en $(x^\mu,x^\nu)$ multiplicandola por el jacobiano del cambio de coordenadas.
+
+\section{Bajar y subir índices}
+
+La manipulación de índices es esencial para que las ecuaciones sean covariantes (válidas en cualquier sistema).
+
+\textbf{Bajar índices:} se usa la métrica $g_{\rho\mu}$
+
+$$A_\mu = \sum_{\rho}A^{\rho} g_{\rho \mu} = A^{\rho} g_{\rho \mu}$$
+
+Al calcular lo anterior, transformamos un vector contravariante en uno covariante.
+
+\textbf{significado físico:} aunque cambiemos la posición del índice, $A^{\mu}$ y $A_{\mu}$ se consideran representaciones del mismo objeto geométrico.
+
+\textbf{Subir índices:} para hacer lo contrario, se usa la métrica inversa $g^{\mu \nu}$
+
+\section{Definición general de distancia infinitesimal}
+
+$$ds^2 = \sum_{\mu \nu} g_{\mu \nu} dx^{\mu}dx^{\nu} = g_{\mu \nu} dx^{\mu}dx^{\nu}$$
+
+\subsection{Ejemplo}
+
+En el espacio plano, $g_{\mu\nu} = \text{diag}(1,1,1)$
+
+\bibliographystyle{plainurl}
+\bibliography{bibliografia} 
+\end{document}
